@@ -24,9 +24,26 @@ public class DetailFragment extends Fragment {
 
         layout.setOrientation(LinearLayout.VERTICAL);
         SeekBar seekBar = new SeekBar(getActivity());
+        seekBar.setMax(50);
+        seekBar.setMin(0);
         TextView textView = new TextView(getActivity());
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textView.setText("值为 ："+progress);
 
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         layout.addView(seekBar);
         layout.addView(textView);
