@@ -10,14 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
         <activity
+            android:name=".IndexTwoActivity"
+            android:exported="false"
+            android:label="Setting"
+            />
+        <activity
             android:name=".ImgsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Imgs"/>
         <activity
             android:name=".InfoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Indexs"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
