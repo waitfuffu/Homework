@@ -27,6 +27,7 @@ public class DetailFragment extends Fragment {
         seekBar.setMax(50);
         seekBar.setMin(0);
         TextView textView = new TextView(getActivity());
+        textView.setText("值为 ：0"); //默认
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
