@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -14,6 +16,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class ChooseThree extends ListActivity {
+    NetWorkStateReceiver netWorkStateReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +24,30 @@ public class ChooseThree extends ListActivity {
         super.onCreate(savedInstanceState);
       //  setContentView(R.layout.activity_choose_three);
 
-        doNetListener();
-
         doDisPlay();
 
     }
 
+    @Override
+    protected void onResume() {
+        doNetListener();
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(netWorkStateReceiver);
+        super.onPause();
+    }
+
     private void doNetListener() {
-
-
-
+        if (netWorkStateReceiver == null) {
+            netWorkStateReceiver = new NetWorkStateReceiver();
+        }
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(netWorkStateReceiver, filter);
 
     }
 
