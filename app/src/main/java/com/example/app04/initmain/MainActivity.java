@@ -1,4 +1,4 @@
-package com.example.app04;
+package com.example.app04.initmain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
 
 import com.example.app04.databinding.ActivityMainBinding;
 

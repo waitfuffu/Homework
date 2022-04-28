@@ -1,4 +1,4 @@
-package com.example.app04;
+package com.example.app04.choose1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.app04.R;
 import com.example.app04.databinding.ActivityImgsBinding;
 
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class ImgsActivity extends AppCompatActivity {
     private List<Integer> mImgIdList;
     private GridView mGridView;
     ProgressBar proBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,6 @@ public class ImgsActivity extends AppCompatActivity {
             super.onPreExecute();
             proBar.setVisibility(View.VISIBLE);
         }
-
-
         @Override
         protected Void doInBackground(Void... voids) {
             // 1s之后进度条走满
@@ -60,7 +58,7 @@ public class ImgsActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                proBar.setProgress(i * 10);
+                proBar.setProgress((i * 10)+10);
             }
             return null;
         }
@@ -72,10 +70,8 @@ public class ImgsActivity extends AppCompatActivity {
             // 进行 UI 操作
             // 数据初始化
             init();
-
             // mGridView加载图片
             setAdapter(mGridView);
-
             // mGridView监听方法
             gridOnItemLongClickL(mGridView);
         }
@@ -91,10 +87,7 @@ public class ImgsActivity extends AppCompatActivity {
         mImgIdList = new ArrayList<>();
         mImgIdList.addAll(tempList);
     }
-
-
     //长按监听器
-
     private void gridOnItemLongClickL(GridView mGridView) {
         mGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -129,29 +122,22 @@ public class ImgsActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
-
-
     // 创建 BaseAdapter 并修改gridview
     private void setAdapter(GridView mGridView) {
         BaseAdapter baseAdapter = new BaseAdapter() {
-
             @Override
             public int getCount() {
                 return mImgIdList.size();
             }
-
             @Override
             public Object getItem(int position) {
                 return position;
             }
-
             @Override
             public long getItemId(int position) {
                 return position;
             }
-
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 ImageView imageView;

@@ -1,4 +1,4 @@
-package com.example.app04;
+package com.example.app04.initmain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.app04.R;
 import com.example.app04.bean.UserData;
+import com.example.app04.choose1.ImgsActivity;
+import com.example.app04.choose2.IndexTwoActivity;
+import com.example.app04.choose3.ChooseThree;
 import com.example.app04.databinding.ActivityInfoBinding;
 
 public class InfoActivity extends AppCompatActivity {
@@ -23,19 +27,16 @@ public class InfoActivity extends AppCompatActivity {
         viewBinding = ActivityInfoBinding.inflate(LayoutInflater.from(this));
         setContentView(viewBinding.getRoot());
         ListView listView = viewBinding.listview1;
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.ctype, android.R.layout.simple_list_item_checked
         );
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = parent.getItemAtPosition(position).toString();
                 Toast.makeText(InfoActivity.this, "点击了：" + s, Toast.LENGTH_SHORT).show();
                 indexToDo(position);      //根据 position TODO
-
             }
         });
     }
@@ -48,23 +49,28 @@ public class InfoActivity extends AppCompatActivity {
                 break;
             case 1:
                 doTwoTODO();
-
                 break;
             case 2:
                 doThreeTODO();
+                break;
+            case 3:
+                doFourTODO();
+                break;
             default:
                 break;
         }
     }
 
+    //点击了第四个选项 ,跳转对应Activity
+    private void doFourTODO() {
+        Intent intent = new Intent();
+    }
+
 
     //点击了第一个选项 ,跳转对应Activity
     private void doOneTODO() {
-
         Intent intent = new Intent(InfoActivity.this, ImgsActivity.class);
-
         startActivity(intent);  //gridView 来显示图片
-
     }
 
     //点击了第二个选项 ,跳转对应Activity
@@ -82,8 +88,8 @@ public class InfoActivity extends AppCompatActivity {
     private void doThreeTODO() {
         Intent intent = new Intent(InfoActivity.this, ChooseThree.class);
         Bundle bundle = new Bundle();
-
         //准备传递 的数据
+        //bean 下 Data类 用于存储数据，同时用于Serializable传输的对象
         UserData user = new UserData(1001, "zs", new String[]{"篮球", "跑步"});
         bundle.putInt("id", user.getId());
         bundle.putString("name", user.getName());
