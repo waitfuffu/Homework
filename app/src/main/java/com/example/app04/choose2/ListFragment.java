@@ -1,25 +1,23 @@
-package com.example.app04;
+package com.example.app04.choose2;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.SeekBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.app04.R;
+import com.example.app04.choose2.DetailFragment;
 
 /**
  *
  */
 public class ListFragment extends androidx.fragment.app.ListFragment {
     //默认为横屏 （ 两个fragment）
-String[] title = new String[]{"亮度","声音","....."};
-
+String[] title = new String[]{"亮度","声音","....."};//设置选项
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -28,15 +26,13 @@ String[] title = new String[]{"亮度","声音","....."};
 
     }
 
-
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if (position==0){
+        if (position==0){   //点击了第一个选项
             DetailFragment detailFragment = new DetailFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.frameLay,detailFragment).commit();
         }
-
     }
 }

@@ -3,6 +3,7 @@
     package="com.example.app04">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,22 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
         <activity
-            android:name=".ChooseThree"
+            android:name=".choose4.ShowSetting"
             android:exported="false" />
         <activity
-            android:name=".IndexTwoActivity"
+            android:name=".choose3.ChooseThree"
+            android:exported="false" />
+        <activity
+            android:name=".choose2.IndexTwoActivity"
             android:exported="false"
             android:label="Setting" />
         <activity
-            android:name=".ImgsActivity"
+            android:name=".choose1.ImgsActivity"
             android:exported="false"
             android:label="Imgs" />
         <activity
-            android:name=".InfoActivity"
+            android:name=".initmain.InfoActivity"
             android:exported="false"
             android:label="Indexs" />
         <activity
-            android:name=".MainActivity"
+            android:name=".initmain.MainActivity"
             android:exported="true"
             android:label="Main">
             <intent-filter>

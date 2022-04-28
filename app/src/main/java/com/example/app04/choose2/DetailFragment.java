@@ -1,4 +1,4 @@
-package com.example.app04;
+package com.example.app04.choose2;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,16 +21,16 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
-
         layout.setOrientation(LinearLayout.VERTICAL);
         SeekBar seekBar = new SeekBar(getActivity());
-        seekBar.setMax(50);
+        seekBar.setMax(100);
         seekBar.setMin(0);
         TextView textView = new TextView(getActivity());
-        textView.setText("值为 ：0"); //默认
+        textView.setText("值为 ：0"); //默认值
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+               //模拟亮度跟着改变
                 textView.setText("值为 ："+progress);
 
             }
@@ -48,8 +48,6 @@ public class DetailFragment extends Fragment {
 
         layout.addView(seekBar);
         layout.addView(textView);
-
         return layout;
-
     }
 }

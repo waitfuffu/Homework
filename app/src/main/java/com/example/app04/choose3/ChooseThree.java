@@ -1,6 +1,4 @@
-package com.example.app04;
-
-
+package com.example.app04.choose3;
 
 import android.app.ListActivity;
 import android.content.BroadcastReceiver;
@@ -25,11 +23,13 @@ public class ChooseThree extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_choose_three);
+        // ListActivity 不用调用setContentView 加载
+        //  setContentView(R.layout.activity_choose_three);
         initReceiver();  //监听net
-        doDisPlay();
+        doDisPlay();      //显示信息
 
     }
+
     /**
      * 注册网络监听的广播
      * （百度）
@@ -45,9 +45,9 @@ public class ChooseThree extends ListActivity {
         registerReceiver(netReceiver, timeFilter);
     }
 
-
     @Override
     protected void onDestroy() {
+        //Activity销毁时，关闭监听 net
         super.onDestroy();
         if (netReceiver != null) {
             unregisterReceiver(netReceiver);
@@ -56,7 +56,7 @@ public class ChooseThree extends ListActivity {
     }
 
     /**
-     *  （百度）
+     * （百度）
      */
     BroadcastReceiver netReceiver = new BroadcastReceiver() {
         @Override
@@ -69,58 +69,49 @@ public class ChooseThree extends ListActivity {
                 if (networkInfo != null && networkInfo.isAvailable()) {
                     int type2 = networkInfo.getType();
                     String typeName = networkInfo.getTypeName();
-
                     switch (type2) {
                         case 0://移动 网络    2G 3G 4G 都是一样的 实测 mix2s 联通卡
                             Log.d("Feeee", "有网络");
-                            Toast.makeText(ChooseThree.this,"移动网络",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChooseThree.this, "移动网络", Toast.LENGTH_SHORT).show();
 
                             break;
                         case 1: //wifi网络
                             Log.d("Feeee", "wifi");
-                            Toast.makeText(ChooseThree.this,"wifi",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChooseThree.this, "wifi", Toast.LENGTH_SHORT).show();
                             break;
 
                         case 9:  //网线连接
                             Log.d("Feeee", "有网络");
-                            Toast.makeText(ChooseThree.this,"网线",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChooseThree.this, "网线", Toast.LENGTH_SHORT).show();
                             break;
                     }
                 } else {// 无网络
                     Log.d("Feeee", "无网络");
-                    Toast.makeText(ChooseThree.this,"无网络",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChooseThree.this, "无网络", Toast.LENGTH_SHORT).show();
                 }
             }
         }
     };
 
-
-
-
-
-
-
-
     private void doDisPlay() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();     //取数据
-        UserData user = (UserData)bundle.getSerializable("user");
+        UserData user = (UserData) bundle.getSerializable("user");
         int id = bundle.getInt("id");
         String name = bundle.getString("name");
         String[] hobbies = bundle.getStringArray("hobby");
         //判断  存取数据是否一致 int string  string[]
-        if(user.getId()==id&&user.getName().equals(name)&& Arrays.equals(user.getHobby(),hobbies)){
+        if (user.getId() == id && user.getName().equals(name) && Arrays.equals(user.getHobby(), hobbies)) {
             showInfo(user);
         }
     }
 
-
     private void showInfo(UserData user) {
-    String[] ctype = new String[]{"id : "+String.valueOf(user.getId()),"name : "+user.getName(),
-    "hobbys : "+Arrays.toString(user.getHobby())};    //读取得到 数据源
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_single_choice,ctype);
+        //使用ListView 用于显示接收的数据
+        String[] ctype = new String[]{"id : " + String.valueOf(user.getId()), "name : " + user.getName(),
+                "hobbys : " + Arrays.toString(user.getHobby())};    //读取得到 数据源
+        ArrayAdapter<String> adapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_list_item_single_choice, ctype);
         setListAdapter(adapter);
-
     }
 }
