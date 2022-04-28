@@ -1,4 +1,4 @@
-package com.example.app04;
+package com.example.app04.bean;
 
 import java.io.Serializable;
 import java.util.Arrays;

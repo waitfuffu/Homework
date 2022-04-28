@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.app04.bean.UserData;
 import com.example.app04.databinding.ActivityInfoBinding;
 
 public class InfoActivity extends AppCompatActivity {
@@ -61,6 +62,7 @@ public class InfoActivity extends AppCompatActivity {
     private void doOneTODO() {
 
         Intent intent = new Intent(InfoActivity.this, ImgsActivity.class);
+
         startActivity(intent);  //gridView 来显示图片
 
     }

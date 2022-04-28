@@ -15,6 +15,8 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.app04.bean.UserData;
+
 import java.util.Arrays;
 
 public class ChooseThree extends ListActivity {
