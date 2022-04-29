@@ -27,7 +27,6 @@ public class ChooseThree extends ListActivity {
         //  setContentView(R.layout.activity_choose_three);
         initReceiver();  //监听net
         doDisPlay();      //显示信息
-
     }
 
     /**
@@ -56,7 +55,7 @@ public class ChooseThree extends ListActivity {
     }
 
     /**
-     * （百度）
+     * （百度查阅）
      */
     BroadcastReceiver netReceiver = new BroadcastReceiver() {
         @Override
@@ -94,6 +93,7 @@ public class ChooseThree extends ListActivity {
     };
 
     private void doDisPlay() {
+        //取出数据并比对
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();     //取数据
         UserData user = (UserData) bundle.getSerializable("user");

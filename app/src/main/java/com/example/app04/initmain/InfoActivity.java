@@ -18,6 +18,7 @@ import com.example.app04.choose2.IndexTwoActivity;
 import com.example.app04.choose3.ChooseThree;
 import com.example.app04.choose4.SettingActivity;
 import com.example.app04.databinding.ActivityInfoBinding;
+
 public class InfoActivity extends AppCompatActivity {
     private ActivityInfoBinding viewBinding;
 
@@ -88,7 +89,7 @@ public class InfoActivity extends AppCompatActivity {
     private void doThreeTODO() {
         Intent intent = new Intent(InfoActivity.this, ChooseThree.class);
         Bundle bundle = new Bundle();
-        //准备传递 的数据
+        //准备传递的数据
         //bean 下 Data类 用于存储数据，同时用于Serializable传输的对象
         UserData user = new UserData(1001, "zs", new String[]{"篮球", "跑步"});
         bundle.putInt("id", user.getId());
