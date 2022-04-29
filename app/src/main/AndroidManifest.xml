@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.app04">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,9 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
-        <activity
-            android:name=".choose4.ShowSetting"
-            android:exported="false" />
         <activity
             android:name=".choose3.ChooseThree"
             android:exported="false" />
@@ -40,5 +38,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
