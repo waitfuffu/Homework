@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
         <activity
+            android:name=".choose4.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".choose3.ChooseThree"
             android:exported="false" />
         <activity
@@ -38,4 +41,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

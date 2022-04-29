@@ -16,8 +16,8 @@ import com.example.app04.bean.UserData;
 import com.example.app04.choose1.ImgsActivity;
 import com.example.app04.choose2.IndexTwoActivity;
 import com.example.app04.choose3.ChooseThree;
+import com.example.app04.choose4.SettingActivity;
 import com.example.app04.databinding.ActivityInfoBinding;
-
 public class InfoActivity extends AppCompatActivity {
     private ActivityInfoBinding viewBinding;
 
@@ -63,7 +63,8 @@ public class InfoActivity extends AppCompatActivity {
 
     //点击了第四个选项 ,跳转对应Activity
     private void doFourTODO() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(InfoActivity.this, SettingActivity.class);
+        startActivity(intent);
     }
 
 

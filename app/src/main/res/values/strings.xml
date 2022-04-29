@@ -3,4 +3,19 @@
 
     <string name="uname">请输入账号</string>
     <string name="upwd">请输入密码</string>
+
+    <string-array name="c4title">
+        <item>网络和互联网</item>
+        <item>已连接的设备蓝牙</item>
+        <item>电池</item>
+        <item>声音、音量</item>
+        <item>Other</item>
+    </string-array>
+  <integer-array name="c4imgids">
+      <item>@drawable/wifi</item>
+      <item>@drawable/blue</item>
+      <item>@drawable/battery</item>
+      <item>@drawable/volume</item>
+      <item>@drawable/search</item>
+  </integer-array>
 </resources>
