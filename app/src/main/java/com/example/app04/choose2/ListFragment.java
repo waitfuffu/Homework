@@ -27,12 +27,12 @@ public class ListFragment extends androidx.fragment.app.ListFragment {
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        DetailFragment details = (DetailFragment)getFragmentManager()
+        DetailFragment details = (DetailFragment) getFragmentManager()
                 .findFragmentById(R.id.frameLay);
-        if (details == null || details.getPosition()!=position){
-            details  =  new DetailFragment(position);
+        if (details == null || details.getPosition() != position) {
+            details = new DetailFragment(position);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLay,details);//内容替换
+            ft.replace(R.id.frameLay, details);//内容替换
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);//转换特效
             ft.commit();
         }
