@@ -75,7 +75,6 @@ public class InfoActivity extends AppCompatActivity {
 
     //点击了第二个选项 ,跳转对应Activity
     private void doTwoTODO() {
-
         Intent intent = new Intent(InfoActivity.this, IndexTwoActivity.class);
         Bundle bundle = new Bundle();       //保存数据
         bundle.putString("index2", "第二个选项传输的字符串");

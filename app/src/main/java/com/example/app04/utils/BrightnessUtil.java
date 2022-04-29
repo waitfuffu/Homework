@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 public class BrightnessUtil {
 
+
     /**
      *获取系统屏幕亮度
      */

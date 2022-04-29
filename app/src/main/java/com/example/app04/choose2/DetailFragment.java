@@ -10,12 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.app04.utils.BrightnessUtil;
 
 public class DetailFragment extends Fragment {
-
-
     private TextView textView ;
     private SeekBar seekBar ;
     private LinearLayout layout;

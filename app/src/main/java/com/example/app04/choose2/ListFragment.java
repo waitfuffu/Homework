@@ -4,17 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.example.app04.R;
-import com.example.app04.choose2.DetailFragment;
 
-/**
- *
- */
+//左边ListFragment
 public class ListFragment extends androidx.fragment.app.ListFragment {
     //默认为横屏 （ 两个fragment）
 String[] title = new String[]{"亮度","声音","....."};//设置选项
