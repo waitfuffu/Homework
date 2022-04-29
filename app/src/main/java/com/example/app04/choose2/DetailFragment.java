@@ -68,7 +68,6 @@ public class DetailFragment extends Fragment {
         textView.setText("音量为 ：30"); //模拟音量
         textView.setTextSize(50);
         layout.addView(textView);
-
     }
 
     private void doZeroTODO() {

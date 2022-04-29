@@ -17,8 +17,6 @@ public class ListFragment extends androidx.fragment.app.ListFragment {
     //默认为横屏 （ 两个fragment）
     String[] title = new String[]{"亮度", "声音", "....."};//设置选项
 
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
