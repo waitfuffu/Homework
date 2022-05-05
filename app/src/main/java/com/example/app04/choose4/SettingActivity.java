@@ -24,7 +24,6 @@ public class SettingActivity extends ListActivity{
         //int[] imgIds = getResources().getIntArray(R.array.c4imgids);
         int[] imgIds = new int[]{R.drawable.wifi,R.drawable.blue,
                 R.drawable.battery,R.drawable.volume,R.drawable.search};
-        System.out.println(imgIds[0]+"++++++++++++++++");
         String[] itemTitles = getResources().getStringArray(R.array.c4title);
         List<Map<String,Object>> list = new ArrayList<>();
         for (int i = 0; i < imgIds.length; i++) {

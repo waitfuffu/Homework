@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.app04.choose5.AccountBook;
 import com.example.app04.R;
 import com.example.app04.bean.UserData;
 import com.example.app04.choose1.ImgsActivity;
@@ -57,9 +58,17 @@ public class InfoActivity extends AppCompatActivity {
             case 3:
                 doFourTODO();
                 break;
+            case 4:
+                doFiveTODO();
+                break;
             default:
                 break;
         }
+    }
+
+    private void doFiveTODO() {
+    Intent intent = new Intent(InfoActivity.this, AccountBook.class);
+    startActivity(intent);
     }
 
     //点击了第四个选项 ,跳转对应Activity

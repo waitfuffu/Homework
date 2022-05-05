@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.app04">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
+        <provider
+            android:name=".choose5.AccountProvider"
+            android:authorities="com.example.app04.provider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
+        <activity
+            android:name=".choose5.AccountBook"
+            android:exported="false" />
         <activity
             android:name=".choose4.SettingActivity"
             android:exported="false" />

@@ -67,7 +67,7 @@ public class DetailFragment extends Fragment {
         layout = new LinearLayout(getActivity());
         layout.setOrientation(LinearLayout.VERTICAL);
         textView = new TextView(getActivity());
-        textView.setText("音量为 ：30"); //模拟音量
+        textView.setText("音量为 ：30");
         textView.setTextSize(50);
         layout.addView(textView);
     }
