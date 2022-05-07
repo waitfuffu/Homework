@@ -18,10 +18,12 @@ import com.example.app04.choose1.ImgsActivity;
 import com.example.app04.choose2.IndexTwoActivity;
 import com.example.app04.choose3.ChooseThree;
 import com.example.app04.choose4.SettingActivity;
+import com.example.app04.choose6.DoMusic;
 import com.example.app04.databinding.ActivityInfoBinding;
 
 public class InfoActivity extends AppCompatActivity {
     private ActivityInfoBinding viewBinding;
+    private Intent intent ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +63,17 @@ public class InfoActivity extends AppCompatActivity {
             case 4:
                 doFiveTODO();
                 break;
+            case 5:
+                doSixTODO();
+                break;
             default:
                 break;
         }
+    }
+    //第六个选项
+    private void doSixTODO() {
+        Intent intent = new Intent(InfoActivity.this, DoMusic.class);
+        startActivity(intent);
     }
 
     private void doFiveTODO() {
@@ -73,20 +83,20 @@ public class InfoActivity extends AppCompatActivity {
 
     //点击了第四个选项 ,跳转对应Activity
     private void doFourTODO() {
-        Intent intent = new Intent(InfoActivity.this, SettingActivity.class);
+        intent = new Intent(InfoActivity.this, SettingActivity.class);
         startActivity(intent);
     }
 
 
     //点击了第一个选项 ,跳转对应Activity
     private void doOneTODO() {
-        Intent intent = new Intent(InfoActivity.this, ImgsActivity.class);
+        intent = new Intent(InfoActivity.this, ImgsActivity.class);
         startActivity(intent);  //gridView 来显示图片
     }
 
     //点击了第二个选项 ,跳转对应Activity
     private void doTwoTODO() {
-        Intent intent = new Intent(InfoActivity.this, IndexTwoActivity.class);
+        intent = new Intent(InfoActivity.this, IndexTwoActivity.class);
         Bundle bundle = new Bundle();       //保存数据
         bundle.putString("index2", "第二个选项传输的字符串");
         intent.putExtras(bundle);
@@ -96,7 +106,7 @@ public class InfoActivity extends AppCompatActivity {
 
     //点击了第三个选项 ,跳转对应Activity
     private void doThreeTODO() {
-        Intent intent = new Intent(InfoActivity.this, ChooseThree.class);
+        intent = new Intent(InfoActivity.this, ChooseThree.class);
         Bundle bundle = new Bundle();
         //准备传递的数据
         //bean 下 Data类 用于存储数据，同时用于Serializable传输的对象
