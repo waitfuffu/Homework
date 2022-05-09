@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+    <TextView
+        style="@style/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="音乐列表选择框："
+        android:layout_marginBottom="20dp"/>
+
+    <Spinner
+        android:id="@+id/c7spinner1"
+        style="@style/title"
+        android:layout_width="255dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="20dp"
+        android:entries="@array/c7musiclist" />
+
+    <LinearLayout
+        android:id="@+id/c7line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/c7b1"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="启动" />
+
+        <Button
+            android:id="@+id/c7b2"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="停止"
+            android:enabled="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/c7text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="未播放"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/c7bar"
+        android:layout_width="138dp"
+        android:layout_height="164dp"
+        android:layout_gravity="center"
+        android:max="100"
+        android:progress="0"
+        />
+
+</LinearLayout>

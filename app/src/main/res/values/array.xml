@@ -10,4 +10,10 @@
         <item>进入第六个选项</item>
         <item>进入第七个选项</item>
     </string-array>
+    
+    <string-array name="c7musiclist">
+        <item>1.二珂 - 孤独她呀</item>
+        <item>2.二珂 - 藏着</item>
+        <item>3.余佳运 - 再一起</item>
+    </string-array>
 </resources>

@@ -19,6 +19,7 @@ import com.example.app04.choose2.IndexTwoActivity;
 import com.example.app04.choose3.ChooseThree;
 import com.example.app04.choose4.SettingActivity;
 import com.example.app04.choose6.DoMusic;
+import com.example.app04.choose7.PlayerActivity;
 import com.example.app04.databinding.ActivityInfoBinding;
 
 public class InfoActivity extends AppCompatActivity {
@@ -66,10 +67,20 @@ public class InfoActivity extends AppCompatActivity {
             case 5:
                 doSixTODO();
                 break;
+            case 6:
+                doSevenTODO();
+                break;
             default:
                 break;
         }
     }
+
+    //第七个选项
+    private void doSevenTODO() {
+        Intent intent = new Intent(InfoActivity.this, PlayerActivity.class);
+        startActivity(intent);
+    }
+
     //第六个选项
     private void doSixTODO() {
         Intent intent = new Intent(InfoActivity.this, DoMusic.class);
