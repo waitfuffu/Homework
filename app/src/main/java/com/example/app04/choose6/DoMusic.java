@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -171,18 +172,10 @@ public class DoMusic extends AppCompatActivity {
                 if (mp != null) {
                     mp.release();   //清空
                 }
-                try {
-                    //文件默认存储到/data/data/<package name>/files/i.mp3
-                    mp = new MediaPlayer();
-                    mp.setDataSource("/data/data/com.example.app04/files/i.mp3");
-                    mp.setDataSource("/files/i.mp3");
-                    //两种方式都出现了异常，文件夹里有i.mp3文件 ，未解决
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.i(DoMusic.class.toString() + "---------", "mp的创建异常");
-                }
+                //文件默认存储到/data/data/<package name>/files/i.mp3
                 //用id 的方式指定可运行
-                mp = MediaPlayer.create(DoMusic.this, R.raw.i2);
+                // mp = MediaPlayer.create(DoMusic.this, R.raw.i2);
+                mp = MediaPlayer.create(DoMusic.this, Uri.parse("/data/data/com.example.app04/files/i.mp3"));
                 mp.start();
                 //mp结束监听器
                 mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
