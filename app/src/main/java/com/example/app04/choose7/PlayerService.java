@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.util.Log;
 
 import com.example.app04.R;
 import com.example.app04.initmain.MainActivity;
@@ -18,6 +19,8 @@ public class PlayerService extends Service {
     private Handler handler;
     private Messenger mServiceMessenger;
     private MediaPlayer mp;
+    private boolean isStop = false ;
+    private int idPosition ;
 
     public PlayerService() {
     }
@@ -41,40 +44,47 @@ public class PlayerService extends Service {
                     //得到的msg.arg1 转化为R.id....
                     int[] ID = {R.raw.m1, R.raw.m2, R.raw.m3};
                     mp = MediaPlayer.create(PlayerService.this, ID[msg.arg1]);
+                    idPosition = msg.arg1;
                     mp.start();
-
-                    while (true) {
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                    //因为按照先进先出的原则，第一个msg未完毕，则不会处理下一个msg，所以需要线程
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            while (!isStop) {
+                                try {
+                                    //每100ms更新一次进度
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                int position = mp.getCurrentPosition();
+                                int time = mp.getDuration();
+                                int barMax = 100;
+                                //计算出当前进度最大值为100
+                                int sendPosition = position * barMax / time;
+                                //发送数据回Activity
+                                // Message message = this.obtainMessage();
+                                Message message = Message.obtain();
+                                message.what = 0x12;
+                                message.arg1 = idPosition;
+                                message.arg2 = sendPosition;
+                                try {
+                                    mActivityMessenger.send(message);
+                                } catch (RemoteException e) {
+                                    e.printStackTrace();
+                                }
+                            }
                         }
-                        int position = mp.getCurrentPosition();
-                        int time = mp.getDuration();
-                        int barMax = 100;
-                        //计算出当前进度最大值为100
-                        int sendPosition = position * barMax / time;
-                        //发送数据回Activity
-                        // Message message = this.obtainMessage();
-                        Message message = Message.obtain();
-                        message.what = 0x12;
-                        message.arg1 = msg.arg1;
-                        message.arg2 = sendPosition;
-                        try {
-                            mActivityMessenger.send(message);
-                        } catch (RemoteException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    }).start();
                 }
                 //暂停
                 if (msg.what == 0x21) {
                     if (mp.isPlaying()) {
+                        Log.i("---PlayerService---","stop");
                         mp.stop();
                     }
+
                 }
-
-
                 }
 
         };

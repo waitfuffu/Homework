@@ -63,10 +63,11 @@ public class PlayerActivity extends AppCompatActivity {
             if (msg.what == 0x12) {
                 int idPosition = msg.arg1;
                 int barPosition = msg.arg2;
+                Log.i("----MainHandler----",array[idPosition].toString());
                 //更改文字状态
                 stateText.setText("播放中: " + array[idPosition] + "  " + String.valueOf(barPosition) + "%");
                 //更新进度条
-                pgb.setVisibility(View.VISIBLE);
+                //pgb.setVisibility(View.VISIBLE);
                 pgb.setProgress(barPosition);
             }
                 super.handleMessage(msg);
@@ -114,6 +115,7 @@ public class PlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 b2.setEnabled(true);
+                pgb.setVisibility(View.VISIBLE);
                 //Activity端的Messenger
                 if (mActivityMessenger == null) {
                     mActivityMessenger = new Messenger(mainHandler);
@@ -128,7 +130,7 @@ public class PlayerActivity extends AppCompatActivity {
                 message.replyTo = mActivityMessenger;
                 try {
                     //通过ServiceMessenger将消息发送到Service中的Handler
-                    Log.i("----------", String.valueOf(mServiceMessenger));
+                    Log.i("----PlayerActivity----", "startButtonMsg");
                     mServiceMessenger.send(message);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -138,16 +140,16 @@ public class PlayerActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pgb.setVisibility(View.GONE);
+                stateText.setVisibility(View.GONE);
                 Message message = Message.obtain();
                 message.what = 0x21;
+                message.replyTo = mActivityMessenger;
                 try {
                     mServiceMessenger.send(message);
+                    Log.i("----PlayerActivity----","sendStopMsg");
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
-                if (connection != null) {
-                    //解绑
-                    unbindService(connection);
                 }
             }
         });
@@ -155,6 +157,10 @@ public class PlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        if (connection != null) {
+            //解绑
+            unbindService(connection);
+        }
         super.onDestroy();
     }
 }
