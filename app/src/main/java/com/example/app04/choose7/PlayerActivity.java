@@ -14,6 +14,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import com.example.app04.R;
 import com.example.app04.databinding.ActivityPlayerBinding;
+import com.example.app04.initmain.InfoActivity;
+
 import java.io.Serializable;
 
 public class PlayerActivity extends AppCompatActivity {
@@ -54,7 +57,7 @@ public class PlayerActivity extends AppCompatActivity {
         }
     };
 
-    private class MainHandler extends Handler implements Serializable {
+    private class MainHandler extends Handler{
         @Override
         public void handleMessage(@NonNull Message msg) {
             if (msg.what == 0x12) {
@@ -71,10 +74,20 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        //首先Activity启动方式切换为 singleTask
+        //其次重写 back 方法，它默认 finish销毁Activity，返回状态不可调用finish()
+        //返回上一级
+        Intent intent = new Intent(PlayerActivity.this, InfoActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding = ActivityPlayerBinding.inflate(LayoutInflater.from(this));
         setContentView(viewBinding.getRoot());
+        Log.i("----PlayerActivity-----","onCreate方法被执行了");
         init();
         buttonOnClickListener();
     }

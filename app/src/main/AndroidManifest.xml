@@ -17,7 +17,8 @@
 
         <activity
             android:name=".choose7.PlayerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".choose6.DoMusic"
             android:exported="false" />
