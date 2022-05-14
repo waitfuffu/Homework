@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +15,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App04">
+        <activity
+            android:name=".homework9.SimulatedBoot"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <service
+            android:name=".homework9.SystemCheckService"
+            android:exported="true"
+            android:enabled="true"
+            />
+
+        <activity
+            android:name=".homework9.Memoryusage"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <receiver
+            android:name=".homework9.SelfStarting"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.monikaiji"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".choose7.PlayerActivity"
             android:exported="false"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".choose6.DoMusic"
             android:exported="false" />
@@ -56,12 +82,15 @@
             android:label="Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".choose7.PlayerService"
+
+        <service
+            android:name=".choose7.PlayerService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

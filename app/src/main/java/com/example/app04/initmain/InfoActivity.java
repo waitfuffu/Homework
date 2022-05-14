@@ -21,6 +21,7 @@ import com.example.app04.choose4.SettingActivity;
 import com.example.app04.choose6.DoMusic;
 import com.example.app04.choose7.PlayerActivity;
 import com.example.app04.databinding.ActivityInfoBinding;
+import com.example.app04.homework9.SimulatedBoot;
 
 public class InfoActivity extends AppCompatActivity {
     private ActivityInfoBinding viewBinding;
@@ -70,9 +71,18 @@ public class InfoActivity extends AppCompatActivity {
             case 6:
                 doSevenTODO();
                 break;
+            case 7:
+                doEightTODO();
+                break;
             default:
                 break;
         }
+    }
+
+    private void doEightTODO() {
+        //模拟开机（重启模拟器太卡了）
+        Intent intent = new Intent(InfoActivity.this, SimulatedBoot.class);
+        startActivity(intent);
     }
 
     //第七个选项
