@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <Button
+        android:id="@+id/c9button"
+        android:layout_width="153dp"
+        android:layout_height="73dp"
+        android:layout_gravity="center"
+        android:layout_margin="100dp"
+        android:text="模拟开机按钮" />
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="历史记账信息:"/>
+
+    <ListView
+        android:id="@+id/c5listview"
+        android:layout_width="match_parent"
+        android:layout_height="354dp" />
+
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="49dp"
+        android:text="请输入记账项:" />
+
+    <EditText
+        android:id="@+id/c5edt1"
+        android:layout_width="185dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:hint="输入记账项" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请输入金额:"/>
+
+    <EditText
+        android:id="@+id/c5edt2"
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:hint="金额输入" />
+
+    <Button
+        android:id="@+id/c5btn"
+        android:layout_width="189dp"
+        android:layout_height="56dp"
+        android:text="add" />
+
+</LinearLayout>

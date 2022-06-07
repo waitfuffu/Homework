@@ -11,15 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.app04.choose5.AccountBook;
 import com.example.app04.R;
 import com.example.app04.bean.UserData;
 import com.example.app04.choose1.ImgsActivity;
 import com.example.app04.choose2.IndexTwoActivity;
 import com.example.app04.choose3.ChooseThree;
+import com.example.app04.choose4.SettingActivity;
+import com.example.app04.choose6.DoMusic;
+import com.example.app04.choose7.PlayerActivity;
 import com.example.app04.databinding.ActivityInfoBinding;
+import com.example.app04.homework9.SimulatedBoot;
 
 public class InfoActivity extends AppCompatActivity {
     private ActivityInfoBinding viewBinding;
+    private Intent intent ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +62,62 @@ public class InfoActivity extends AppCompatActivity {
             case 3:
                 doFourTODO();
                 break;
+            case 4:
+                doFiveTODO();
+                break;
+            case 5:
+                doSixTODO();
+                break;
+            case 6:
+                doSevenTODO();
+                break;
+            case 7:
+                doEightTODO();
+                break;
             default:
                 break;
         }
     }
 
+    private void doEightTODO() {
+        //模拟开机（重启模拟器太卡了）
+        Intent intent = new Intent(InfoActivity.this, SimulatedBoot.class);
+        startActivity(intent);
+    }
+
+    //第七个选项
+    private void doSevenTODO() {
+        Intent intent = new Intent(InfoActivity.this, PlayerActivity.class);
+        startActivity(intent);
+    }
+
+    //第六个选项
+    private void doSixTODO() {
+        Intent intent = new Intent(InfoActivity.this, DoMusic.class);
+        startActivity(intent);
+    }
+
+    private void doFiveTODO() {
+    Intent intent = new Intent(InfoActivity.this, AccountBook.class);
+    startActivity(intent);
+    }
+
     //点击了第四个选项 ,跳转对应Activity
     private void doFourTODO() {
-        Intent intent = new Intent();
+        intent = new Intent(InfoActivity.this, SettingActivity.class);
+        startActivity(intent);
     }
 
 
     //点击了第一个选项 ,跳转对应Activity
     private void doOneTODO() {
-        Intent intent = new Intent(InfoActivity.this, ImgsActivity.class);
+        intent = new Intent(InfoActivity.this, ImgsActivity.class);
         startActivity(intent);  //gridView 来显示图片
     }
 
     //点击了第二个选项 ,跳转对应Activity
     private void doTwoTODO() {
-
-        Intent intent = new Intent(InfoActivity.this, IndexTwoActivity.class);
+        intent = new Intent(InfoActivity.this, IndexTwoActivity.class);
         Bundle bundle = new Bundle();       //保存数据
         bundle.putString("index2", "第二个选项传输的字符串");
         intent.putExtras(bundle);
@@ -86,9 +127,9 @@ public class InfoActivity extends AppCompatActivity {
 
     //点击了第三个选项 ,跳转对应Activity
     private void doThreeTODO() {
-        Intent intent = new Intent(InfoActivity.this, ChooseThree.class);
+        intent = new Intent(InfoActivity.this, ChooseThree.class);
         Bundle bundle = new Bundle();
-        //准备传递 的数据
+        //准备传递的数据
         //bean 下 Data类 用于存储数据，同时用于Serializable传输的对象
         UserData user = new UserData(1001, "zs", new String[]{"篮球", "跑步"});
         bundle.putInt("id", user.getId());

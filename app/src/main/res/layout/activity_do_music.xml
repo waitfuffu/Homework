@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+    <TextView
+        android:layout_width="230dp"
+        android:layout_height="63dp"
+        android:text="网址输入 :"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:text="https://vod.ruotongmusic.com/sv/201248e0-179ccc9e0be/201248e0-179ccc9e0be.wav"
+        android:id="@+id/c6edt"
+        android:layout_width="311dp"
+        android:layout_height="75dp"
+        android:hint="输入网址"
+        android:textColor="#1649d2"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"/>
+    <Button
+        android:id="@+id/c6btn1"
+        android:layout_width="139dp"
+        android:layout_height="61dp"
+        android:text="启动"
+        android:textSize="30dp"
+        android:layout_margin="11dp"/>
+
+    <Button
+        android:id="@+id/c6btn2"
+        android:layout_width="139dp"
+        android:layout_height="61dp"
+        android:text="停止"
+        android:textSize="30dp"
+        android:layout_margin="11dp"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/c6num"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="音乐播放中，循环次数:0"
+        android:textColor="#ac2b2a"
+        android:textSize="25dp"
+        android:visibility="invisible" />
+
+    <ProgressBar
+        android:id="@+id/c6probar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:max="100"
+        android:progress="0"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/c6gress"
+        android:layout_marginTop="20dp"
+        android:layout_width="230dp"
+        android:layout_height="63dp"
+        android:visibility="gone"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"/>
+
+</LinearLayout>

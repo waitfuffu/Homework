@@ -3,4 +3,35 @@
 
     <string name="uname">请输入账号</string>
     <string name="upwd">请输入密码</string>
+
+    <string-array name="c4title">
+        <item>网络和互联网</item>
+        <item>已连接的设备蓝牙</item>
+        <item>电池</item>
+        <item>声音、音量</item>
+        <item>Other</item>
+    </string-array>
+    <integer-array name="c4imgids">
+        <item>@drawable/wifi</item>
+        <item>@drawable/blue</item>
+        <item>@drawable/battery</item>
+        <item>@drawable/volume</item>
+        <item>@drawable/search</item>
+    </integer-array>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>
